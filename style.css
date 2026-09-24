@@ -1,0 +1,82 @@
+/* Thangoo Surprise - soft, romantic visual style */
+:root {
+  --ink: #3d2035;
+  --muted: #80566f;
+  --pink: #d94f88;
+  --deep-pink: #ad326d;
+  --blush: #ffe4ef;
+  --lilac: #e9ddff;
+  --white-glass: rgba(255, 255, 255, 0.72);
+  --line: rgba(142, 65, 111, 0.16);
+  --shadow: 0 22px 70px rgba(122, 47, 94, 0.2);
+}
+
+* { box-sizing: border-box; }
+html { min-height: 100%; }
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  font-family: "DM Sans", sans-serif;
+  background: radial-gradient(circle at 15% 15%, #fff7fb 0, transparent 35%), radial-gradient(circle at 85% 80%, #eee7ff 0, transparent 38%), linear-gradient(135deg, #ffd9e9 0%, #fff8fc 47%, #e6dcff 100%);
+}
+
+.app-shell { position: relative; min-height: 100vh; overflow: hidden; isolation: isolate; }
+.page { min-height: 100vh; display: grid; place-items: center; padding: 32px 18px; position: relative; z-index: 1; }
+.page[hidden] { display: none; }
+.card, .content-panel { width: min(100%, 560px); padding: clamp(28px, 6vw, 58px); text-align: center; background: var(--white-glass); border: 1px solid rgba(255,255,255,.78); border-radius: 32px; box-shadow: var(--shadow); backdrop-filter: blur(18px); }
+.content-panel { width: min(100%, 820px); padding: clamp(24px, 5vw, 48px); }
+.compact-card { max-width: 520px; }
+.eyebrow { color: var(--deep-pink); font-size: .74rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+.title-heart { margin: 18px auto 8px; color: var(--pink); font-size: 2.7rem; line-height: 1; text-shadow: 0 8px 22px rgba(217,79,136,.3); }
+h1, h2, h3 { margin: 0; font-family: "Playfair Display", serif; }
+h1 { font-size: clamp(2.2rem, 7vw, 4rem); line-height: 1.04; }
+h2 { margin-top: 12px; font-size: clamp(2rem, 5vw, 3.4rem); line-height: 1.05; }
+h3 { font-size: 1.55rem; }
+.subtitle, .question { color: var(--muted); line-height: 1.6; }
+.question { margin: 26px 0 2px; font-size: clamp(1.2rem, 3vw, 1.55rem); }
+form { display: grid; gap: 10px; margin-top: 28px; text-align: left; }
+label { margin-top: 6px; color: var(--muted); font-size: .86rem; font-weight: 700; }
+input { width: 100%; border: 1px solid var(--line); border-radius: 14px; padding: 15px 16px; color: var(--ink); background: rgba(255,255,255,.76); font: inherit; outline: none; transition: border-color .2s, box-shadow .2s, transform .2s; }
+input:focus { border-color: var(--pink); box-shadow: 0 0 0 4px rgba(217,79,136,.13); transform: translateY(-1px); }
+.primary-button { border: 0; border-radius: 999px; margin-top: 14px; padding: 15px 24px; color: #fff; background: linear-gradient(110deg, var(--deep-pink), var(--pink)); font: inherit; font-weight: 700; cursor: pointer; box-shadow: 0 10px 22px rgba(173,50,109,.25); transition: transform .2s, box-shadow .2s; }
+.primary-button:hover, .primary-button:focus-visible { transform: translateY(-3px); box-shadow: 0 14px 28px rgba(173,50,109,.32); }
+.feedback { min-height: 24px; margin: 16px 0 0; color: var(--deep-pink); font-weight: 700; }
+.feedback.success { color: #4d8a72; }
+.percent-input-wrap { display: flex; align-items: center; gap: 10px; }
+.percent-input-wrap span { color: var(--pink); font-size: 1.5rem; font-weight: 700; }
+.sentence-card { min-height: 360px; display: flex; flex-direction: column; justify-content: center; }
+.sentence-text { min-height: 130px; display: grid; place-items: center; margin: 24px 0; font-family: "Playfair Display", serif; font-size: clamp(1.7rem, 5vw, 3rem); line-height: 1.2; }
+.sentence-text.show { animation: fade-in .8s ease both; }
+.progress-dots, .photo-progress { display: flex; justify-content: center; gap: 8px; }
+.progress-dots span, .photo-progress span { width: 9px; height: 9px; border-radius: 50%; background: rgba(217,79,136,.25); transition: transform .3s, background .3s; }
+.progress-dots span.active, .photo-progress span.active { background: var(--pink); transform: scale(1.35); }
+.media-frame { display: block; width: 100%; max-height: 62vh; margin: 28px auto 0; border-radius: 22px; background: #321c31; object-fit: contain; box-shadow: 0 18px 40px rgba(65,25,55,.22); }
+.media-note { color: var(--muted); font-size: .9rem; }
+.slideshow { position: relative; margin: 28px auto 16px; max-width: 680px; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 22px; background: rgba(255,255,255,.45); box-shadow: 0 18px 40px rgba(65,25,55,.2); }
+.memory-image { width: 100%; height: 100%; display: block; object-fit: cover; animation: photo-in .7s ease both; }
+.icon-button { position: absolute; top: 50%; width: 42px; height: 42px; border: 1px solid rgba(255,255,255,.8); border-radius: 50%; color: var(--ink); background: rgba(255,255,255,.78); font-size: 2rem; line-height: 1; cursor: pointer; transform: translateY(-50%); }
+.icon-button:first-of-type { left: 14px; }
+.icon-button:last-of-type { right: 14px; }
+.audio-box { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--line); }
+audio { width: min(100%, 500px); margin-top: 14px; }
+.final-message { margin: 34px 0 0; font-family: "Playfair Display", serif; font-size: clamp(1.2rem, 3vw, 1.7rem); color: var(--deep-pink); }
+.heart-layer { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.floating-heart { position: absolute; bottom: -12vh; animation: float-up linear forwards; opacity: 0; }
+.reveal { animation: rise-in .8s ease both; }
+.heartbeat { animation: heartbeat 1.8s ease-in-out infinite; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+@keyframes rise-in { from { opacity: 0; transform: translateY(18px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes fade-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes photo-in { from { opacity: 0; transform: scale(1.03); } to { opacity: 1; transform: scale(1); } }
+@keyframes float-up { 0% { opacity: 0; transform: translateY(0) rotate(0deg) scale(.8); } 12% { opacity: .9; } 100% { opacity: 0; transform: translateY(-120vh) rotate(360deg) scale(1.15); } }
+@keyframes heartbeat { 0%, 100% { transform: scale(1); } 12% { transform: scale(1.06); } 24% { transform: scale(1); } 36% { transform: scale(1.04); } }
+
+@media (max-width: 520px) {
+  .page { padding: 18px 12px; }
+  .card, .content-panel { border-radius: 24px; }
+  .slideshow { aspect-ratio: 1 / 1; }
+  .icon-button { width: 36px; height: 36px; font-size: 1.7rem; }
+}

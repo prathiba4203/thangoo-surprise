@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#d94f88">
+  <title>Thangoo Surprise ❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <div id="heart-layer" class="heart-layer" aria-hidden="true"></div>
+
+    <section id="login-page" class="page active" aria-labelledby="login-title">
+      <div class="card login-card reveal">
+        <div class="eyebrow heartbeat">A tiny surprise for you</div>
+        <div class="title-heart" aria-hidden="true">♥</div>
+        <h1 id="login-title">Welcome Thangoo <span>❤️</span></h1>
+        <p class="subtitle">First login pannitu inside vaa 😌</p>
+        <form id="login-form" novalidate>
+          <label for="name-input">Name</label>
+          <input id="name-input" name="name" type="text" autocomplete="username" placeholder="Enter your name" required>
+          <label for="password-input">Password</label>
+          <input id="password-input" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required>
+          <button class="primary-button" type="submit">Login ❤️</button>
+        </form>
+        <p id="login-message" class="feedback" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section id="percentage-page" class="page" aria-labelledby="percentage-title" hidden>
+      <div class="card compact-card reveal">
+        <div class="eyebrow">One important question</div>
+        <h2 id="percentage-title">Thangoo <span>❤️</span></h2>
+        <p class="question">Unakku enna evlo pudikum? 🥹</p>
+        <p class="subtitle">Percentage ah enter pannu...</p>
+        <form id="percentage-form" novalidate>
+          <label class="sr-only" for="percentage-input">Percentage</label>
+          <div class="percent-input-wrap">
+            <input id="percentage-input" type="number" min="0" max="100" step="1" inputmode="numeric" placeholder="100" required>
+            <span>%</span>
+          </div>
+          <button class="primary-button" type="submit">Submit 💕</button>
+        </form>
+        <p id="percentage-message" class="feedback" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section id="sentences-page" class="page" aria-labelledby="sentence-title" hidden>
+      <div class="card sentence-card reveal">
+        <div class="eyebrow">A few words from my heart</div>
+        <h2 id="sentence-title" class="sr-only">A message for you</h2>
+        <p id="sentence-text" class="sentence-text"></p>
+        <div id="sentence-progress" class="progress-dots" aria-label="Message progress"></div>
+      </div>
+    </section>
+
+    <section id="video-page" class="page media-page" aria-labelledby="video-title" hidden>
+      <div class="content-panel reveal">
+        <div class="eyebrow">Your next surprise</div>
+        <h2 id="video-title">Just For You <span>❤️</span></h2>
+        <p class="subtitle">Press play if your browser keeps the surprise waiting.</p>
+        <video id="surprise-video" class="media-frame" controls playsinline preload="metadata">
+          <source src="video/cute-video.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+        <p id="video-fallback" class="media-note" hidden>Add your video at <strong>video/cute-video.mp4</strong> to continue this part.</p>
+      </div>
+    </section>
+
+    <section id="memories-page" class="page media-page" aria-labelledby="memories-title" hidden>
+      <div class="content-panel reveal">
+        <div class="eyebrow">The sweetest little archive</div>
+        <h2 id="memories-title">Our Little Memories <span>❤️</span></h2>
+        <div class="slideshow" aria-live="polite">
+          <img id="memory-image" class="memory-image" src="photos/photo1.jpg" alt="A special memory" data-index="0">
+          <button id="previous-photo" class="icon-button" type="button" aria-label="Previous photo">‹</button>
+          <button id="next-photo" class="icon-button" type="button" aria-label="Next photo">›</button>
+        </div>
+        <div id="photo-progress" class="photo-progress" aria-label="Photo progress"></div>
+        <div class="audio-box">
+          <h3>🎵 Lali Lali 🎵</h3>
+          <audio id="love-song" controls loop preload="metadata">
+            <source src="song/lali-lali.mp3" type="audio/mpeg">
+            Your browser does not support HTML5 audio.
+          </audio>
+          <p id="audio-fallback" class="media-note" hidden>Add your song at <strong>song/lali-lali.mp3</strong> to hear it here.</p>
+        </div>
+        <p class="final-message">❤️ The End... or Maybe Just The Beginning ❤️</p>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
