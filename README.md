@@ -12,18 +12,15 @@ thangoo-surprise/
 ├── style.css
 ├── script.js
 ├── README.md
-├── photos/
-│   ├── photo1.jpg
-│   ├── photo2.jpg
-│   ├── photo3.jpg
-│   └── photo4.jpg
-├── video/
-│   └── cute-video.mp4
-└── song/
-    └── lali-lali.mp3
+├── photo1.jpg
+├── photo2.jpg
+├── photo3.jpg
+├── photo4.jpg
+├── cute-video.mp4
+└── lali-lali.mp3
 ```
 
-Replace the four JPG files in `photos/`, the MP4 in `video/`, and the MP3 in `song/` with your own files. The media folders include placeholder instructions until those binary files are added.
+Keep the four JPG files, MP4, and MP3 in the project root beside `index.html`. The website uses root-level paths so the files work correctly on GitHub Pages.
 
 ## Run in VS Code
 
@@ -48,4 +45,4 @@ Do not make a QR code for a local path such as `file:///D:/...`. The site must b
 
 - Edit the `sentences` array near the top of `script.js` to change the timed messages.
 - Change `name === "thangoo"` and `password === "332023"` in `script.js` to change the login.
-- Change the image, video, or audio filenames only if you also update their paths in `index.html` or `script.js`.
+- Change the image, video, or audio filenames only if you also update their root-level paths in `index.html` or `script.js`.

@@ -64,10 +64,10 @@
         <h2 id="video-title">Just For You <span>❤️</span></h2>
         <p class="subtitle">Press play if your browser keeps the surprise waiting.</p>
         <video id="surprise-video" class="media-frame" controls playsinline preload="metadata">
-          <source src="video/cute-video.mp4" type="video/mp4">
+          <source src="cute-video.mp4" type="video/mp4">
           Your browser does not support HTML5 video.
         </video>
-        <p id="video-fallback" class="media-note" hidden>Add your video at <strong>video/cute-video.mp4</strong> to continue this part.</p>
+        <p id="video-fallback" class="media-note" hidden>Add your video at <strong>cute-video.mp4</strong> to continue this part.</p>
       </div>
     </section>
 
@@ -76,7 +76,8 @@
         <div class="eyebrow">The sweetest little archive</div>
         <h2 id="memories-title">Our Little Memories <span>❤️</span></h2>
         <div class="slideshow" aria-live="polite">
-          <img id="memory-image" class="memory-image" src="photos/photo1.jpg" alt="A special memory" data-index="0">
+          <img id="memory-image" class="memory-image" src="photo1.jpg" alt="A special memory" data-index="0">
+          <p id="photo-fallback" class="photo-fallback" role="status" aria-live="polite" hidden></p>
           <button id="previous-photo" class="icon-button" type="button" aria-label="Previous photo">‹</button>
           <button id="next-photo" class="icon-button" type="button" aria-label="Next photo">›</button>
         </div>
@@ -84,10 +85,10 @@
         <div class="audio-box">
           <h3>🎵 Lali Lali 🎵</h3>
           <audio id="love-song" controls loop preload="metadata">
-            <source src="song/lali-lali.mp3" type="audio/mpeg">
+            <source src="lali-lali.mp3" type="audio/mpeg">
             Your browser does not support HTML5 audio.
           </audio>
-          <p id="audio-fallback" class="media-note" hidden>Add your song at <strong>song/lali-lali.mp3</strong> to hear it here.</p>
+          <p id="audio-fallback" class="media-note" hidden>Add your song at <strong>lali-lali.mp3</strong> to hear it here.</p>
         </div>
         <p class="final-message">❤️ The End... or Maybe Just The Beginning ❤️</p>
       </div>

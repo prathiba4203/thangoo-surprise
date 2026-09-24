@@ -56,6 +56,7 @@ input:focus { border-color: var(--pink); box-shadow: 0 0 0 4px rgba(217,79,136,.
 .media-note { color: var(--muted); font-size: .9rem; }
 .slideshow { position: relative; margin: 28px auto 16px; max-width: 680px; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 22px; background: rgba(255,255,255,.45); box-shadow: 0 18px 40px rgba(65,25,55,.2); }
 .memory-image { width: 100%; height: 100%; display: block; object-fit: cover; animation: photo-in .7s ease both; }
+.photo-fallback { position: absolute; top: 50%; left: 50%; z-index: 1; width: min(80%, 360px); margin: 0; padding: 10px 14px; border-radius: 12px; color: var(--deep-pink); background: rgba(255,255,255,.88); font-size: .9rem; font-weight: 700; transform: translate(-50%, -50%); }
 .icon-button { position: absolute; top: 50%; width: 42px; height: 42px; border: 1px solid rgba(255,255,255,.8); border-radius: 50%; color: var(--ink); background: rgba(255,255,255,.78); font-size: 2rem; line-height: 1; cursor: pointer; transform: translateY(-50%); }
 .icon-button:first-of-type { left: 14px; }
 .icon-button:last-of-type { right: 14px; }

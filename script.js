@@ -12,7 +12,7 @@ const sentences = [
 
 const pages = document.querySelectorAll(".page");
 const heartLayer = document.getElementById("heart-layer");
-const photoPaths = ["photos/photo1.jpg", "photos/photo2.jpg", "photos/photo3.jpg", "photos/photo4.jpg"];
+const photoPaths = ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg"];
 let sentenceTimer;
 let photoTimer;
 let currentPhoto = 0;
@@ -111,28 +111,62 @@ const surpriseVideo = document.getElementById("surprise-video");
 const videoFallback = document.getElementById("video-fallback");
 function showVideoPage() {
   showPage("video-page");
+  surpriseVideo.load();
   surpriseVideo.play().catch(() => {
-    // Autoplay can be blocked; the visible controls let the user start it manually.
+    videoFallback.textContent = "Tap the video play button to continue ❤️";
+    videoFallback.hidden = false;
   });
 }
-surpriseVideo.addEventListener("error", () => { videoFallback.hidden = false; });
+surpriseVideo.addEventListener("playing", () => { videoFallback.hidden = true; });
+surpriseVideo.addEventListener("error", () => {
+  videoFallback.textContent = "The video could not be loaded. Check cute-video.mp4 in the project root.";
+  videoFallback.hidden = false;
+});
 surpriseVideo.addEventListener("ended", showMemoriesPage);
 
 const memoryImage = document.getElementById("memory-image");
 const photoProgress = document.getElementById("photo-progress");
+const photoFallback = document.getElementById("photo-fallback");
 const loveSong = document.getElementById("love-song");
 const audioFallback = document.getElementById("audio-fallback");
 photoProgress.innerHTML = photoPaths.map((_, index) => `<span${index === 0 ? ' class="active"' : ""}></span>`).join("");
 
+// Preload every photo so the slideshow swaps only after the next image is ready.
+const photoCache = photoPaths.map((path, index) => {
+  const image = new Image();
+  image.addEventListener("load", () => {
+    if (index === currentPhoto && document.getElementById("memories-page").hidden === false) renderPhoto(index);
+  });
+  image.addEventListener("error", () => {
+    if (index === currentPhoto) showPhotoMessage(`Photo ${index + 1} could not be loaded.`);
+  });
+  image.src = path;
+  return image;
+});
+
+function showPhotoMessage(message) {
+  photoFallback.textContent = message;
+  photoFallback.hidden = false;
+}
+
 function renderPhoto(index) {
   currentPhoto = (index + photoPaths.length) % photoPaths.length;
+  const nextPhoto = photoCache[currentPhoto];
+  if (!nextPhoto.complete || nextPhoto.naturalWidth === 0) {
+    showPhotoMessage(`Loading photo ${currentPhoto + 1}...`);
+    return;
+  }
+
+  photoFallback.hidden = true;
   memoryImage.classList.remove("memory-image");
   void memoryImage.offsetWidth;
-  memoryImage.src = photoPaths[currentPhoto];
+  memoryImage.src = nextPhoto.src;
   memoryImage.dataset.index = currentPhoto;
   memoryImage.classList.add("memory-image");
   [...photoProgress.children].forEach((dot, dotIndex) => dot.classList.toggle("active", dotIndex === currentPhoto));
 }
+
+memoryImage.addEventListener("error", () => showPhotoMessage(`Photo ${currentPhoto + 1} could not be displayed.`));
 
 function showMemoriesPage() {
   showPage("memories-page");
