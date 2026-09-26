@@ -40,7 +40,7 @@
         <form id="percentage-form" novalidate>
           <label class="sr-only" for="percentage-input">Percentage</label>
           <div class="percent-input-wrap">
-            <input id="percentage-input" type="number" min="0" max="100" step="1" inputmode="numeric" placeholder="100" required>
+            <input id="percentage-input" type="number" min="0" max="100" step="1" inputmode="numeric" placeholder="Enter percentage" required>
             <span>%</span>
           </div>
           <button class="primary-button" type="submit">Submit 💕</button>
@@ -67,6 +67,7 @@
           <source src="cute-video.mp4" type="video/mp4">
           Your browser does not support HTML5 video.
         </video>
+        <button id="audio-play-button" class="primary-button" type="button" hidden>Play Lali Lali 🎵</button>
         <p id="video-fallback" class="media-note" hidden>Add your video at <strong>cute-video.mp4</strong> to continue this part.</p>
       </div>
     </section>
@@ -76,7 +77,7 @@
         <div class="eyebrow">The sweetest little archive</div>
         <h2 id="memories-title">Our Little Memories <span>❤️</span></h2>
         <div class="slideshow" aria-live="polite">
-          <img id="memory-image" class="memory-image" src="photo1.jpg" alt="A special memory" data-index="0">
+          <img id="memory-image" class="memory-image" src="photos/photo5.jpg" alt="A special memory" data-index="0">
           <p id="photo-fallback" class="photo-fallback" role="status" aria-live="polite" hidden></p>
           <button id="previous-photo" class="icon-button" type="button" aria-label="Previous photo">‹</button>
           <button id="next-photo" class="icon-button" type="button" aria-label="Next photo">›</button>
@@ -84,7 +85,7 @@
         <div id="photo-progress" class="photo-progress" aria-label="Photo progress"></div>
         <div class="audio-box">
           <h3>🎵 Lali Lali 🎵</h3>
-          <audio id="love-song" controls loop preload="metadata">
+          <audio id="love-song" controls preload="metadata">
             <source src="lali-lali.mp3" type="audio/mpeg">
             Your browser does not support HTML5 audio.
           </audio>

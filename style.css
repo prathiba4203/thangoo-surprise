@@ -44,6 +44,7 @@ input:focus { border-color: var(--pink); box-shadow: 0 0 0 4px rgba(217,79,136,.
 .primary-button:hover, .primary-button:focus-visible { transform: translateY(-3px); box-shadow: 0 14px 28px rgba(173,50,109,.32); }
 .feedback { min-height: 24px; margin: 16px 0 0; color: var(--deep-pink); font-weight: 700; }
 .feedback.success { color: #4d8a72; }
+.feedback.romantic-message { color: var(--deep-pink); font-family: "Playfair Display", serif; font-size: 1.15rem; line-height: 1.5; }
 .percent-input-wrap { display: flex; align-items: center; gap: 10px; }
 .percent-input-wrap span { color: var(--pink); font-size: 1.5rem; font-weight: 700; }
 .sentence-card { min-height: 360px; display: flex; flex-direction: column; justify-content: center; }
